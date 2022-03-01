@@ -6,7 +6,9 @@ import {
   USER_AUTHENTICATION_SUCCESS,
   USER_AUTHENTICATION_FAIL,
   USER_LOGOUT,
-  USER_CLEAR_CURRENT,
+  USER_CURRENT_INFORMATION_REQUEST,
+  USER_CURRENT_INFORMATION_SUCCESS,
+  USER_CURRENT_INFORMATION_FAIL,
 } from "../types/userTypes";
 
 export const userAuthenticationReducer = (state = {}, action) => {
@@ -27,7 +29,6 @@ export const userAuthenticationReducer = (state = {}, action) => {
         loading: false,
         error: action.payload,
       };
-    case USER_CLEAR_CURRENT:
     case USER_LOGOUT:
       return {};
   }
@@ -47,6 +48,27 @@ export const userRegistrationReducer = (state = {}, action) => {
         currentUser: action.payload,
       };
     case USER_REGISTRATION_FAIL:
+      return {
+        loading: false,
+        error: action.payload,
+      };
+  }
+};
+
+export const userCurrentInformationReducer = (state = {}, action) => {
+  switch (action.type) {
+    default:
+      return state;
+    case USER_CURRENT_INFORMATION_REQUEST:
+      return {
+        loading: true,
+      };
+    case USER_CURRENT_INFORMATION_SUCCESS:
+      return {
+        loading: false,
+        currentUser: action.payload,
+      };
+    case USER_CURRENT_INFORMATION_FAIL:
       return {
         loading: false,
         error: action.payload,

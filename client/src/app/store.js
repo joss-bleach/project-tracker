@@ -6,11 +6,13 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import {
   userAuthenticationReducer,
   userRegistrationReducer,
+  userCurrentInformationReducer,
 } from "./reducers/userReducers";
 
 const reducer = combineReducers({
   userAuthentication: userAuthenticationReducer,
   userRegistration: userRegistrationReducer,
+  userCurrentInformation: userCurrentInformationReducer,
 });
 
 const currentUserInformationFromStorage = localStorage.getItem("currentUser")
