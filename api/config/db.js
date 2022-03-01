@@ -8,7 +8,7 @@ const connectDatabase = async () => {
         .yellow.bold
     );
   } catch (err) {
-    console.error(`Error: ${err.message}`.trimEnd.bold);
+    console.error(`Error: ${err.message}`.yellow.bold);
     process.exit(1);
   }
 };

@@ -32,3 +32,19 @@ export const userRegistrationValidationRules = () => {
       .withMessage("Your password must be at least 6 characters long"),
   ];
 };
+
+export const userAuthenticationValidationRules = () => {
+  return [
+    // Email validation rules
+    body("email")
+      .not()
+      .isEmpty()
+      .withMessage("Please enter your email address")
+      .normalizeEmail()
+      .isEmail()
+      .withMessage("Please enter a valid email address"),
+
+    // Password validation rules
+    body("password").not().isEmpty().withMessage("Please enter your password"),
+  ];
+};

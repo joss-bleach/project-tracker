@@ -1,18 +1,30 @@
 import express from "express";
-const userRouter = express.Router();
+const router = express.Router();
 
 // Validation
 import validateInputs from "../middleware/validateInputs.js";
-import { userRegistrationValidationRules } from "../validation/userValidationRules.js";
+import {
+  userRegistrationValidationRules,
+  userAuthenticationValidationRules,
+} from "../validation/userValidationRules.js";
 
 // Controllers
-import { registerNewUser } from "../controllers/userController.js";
+import {
+  registerNewUser,
+  authenticateUser,
+} from "../controllers/userController.js";
 
-userRouter.post(
+router.post(
   "/",
   userRegistrationValidationRules(),
   validateInputs,
   registerNewUser
 );
+router.post(
+  "/authenticate/",
+  userAuthenticationValidationRules(),
+  validateInputs,
+  authenticateUser
+);
 
-export default userRouter;
+export default router;
