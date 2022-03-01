@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev:server": "cd ./api && npm run serve"
+    "dev:server": "cd ./api && npm run serve",
+    "dev:client": "cd ./client && npm start"
   },
   "keywords": [],
   "author": "",
