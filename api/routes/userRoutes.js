@@ -1,6 +1,8 @@
 import express from "express";
 const router = express.Router();
 
+import privateRoute from "../middleware/privateRoute.js";
+
 // Validation
 import validateInputs from "../middleware/validateInputs.js";
 import {
@@ -12,6 +14,7 @@ import {
 import {
   registerNewUser,
   authenticateUser,
+  getAuth,
 } from "../controllers/userController.js";
 
 router.post(
@@ -26,5 +29,6 @@ router.post(
   validateInputs,
   authenticateUser
 );
+router.get("/getAuth", privateRoute, getAuth);
 
 export default router;

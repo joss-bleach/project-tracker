@@ -58,3 +58,21 @@ export const authenticateUser = asyncHandler(async (req, res) => {
     throw new Error("Invalid email/password combination.");
   }
 });
+
+// @route - /api/users/getAuth/
+// @desc - GET request to retrieve information of current authenticated user
+// @access - private
+export const getAuth = asyncHandler(async (req, res) => {
+  const currentUser = await User.findById(req.user._id);
+
+  if (currentUser) {
+    res.json({
+      _id: currentUser._id,
+      name: currentUser.name,
+      email: currentUser.email,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found in database.");
+  }
+});
