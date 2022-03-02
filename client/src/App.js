@@ -1,8 +1,15 @@
+import { BrowserRouter as Router } from "react-router-dom";
+
+// Routes
+import Routes from "./routing/Routes";
+
 const App = () => {
   return (
-    <div>
-      <h1>App</h1>
-    </div>
+    <Router>
+      <main className="container mx-auto py-20">
+        <Routes />
+      </main>
+    </Router>
   );
 };
 

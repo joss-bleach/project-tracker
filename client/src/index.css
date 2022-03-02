@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  @apply antialiased;
+}
+
+/* Form components */
+.form-fieldset {
+  @apply flex w-88 flex-col space-y-2 md:w-100;
+}
+
+.form-label {
+  @apply font-light;
+}
+
+.form-input {
+  @apply h-12 rounded-md border-2 border-theme-black px-2 font-light focus:outline-none;
+}
+
+.form-submit {
+  @apply h-12 flex-row items-center justify-center rounded-md border-2 border-theme-black bg-theme-black font-bold text-theme-white transition hover:bg-theme-white hover:text-theme-black;
+}
+
+.form-alert {
+  @apply flex h-12 w-88 flex-row items-center justify-center rounded-md border-2 font-light  md:w-100;
+}
+
+.form-alert_error {
+  @apply border-red-600 bg-red-200 text-red-600;
+}
