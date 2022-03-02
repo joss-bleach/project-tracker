@@ -22,11 +22,13 @@ export const userAuthenticationReducer = (state = {}, action) => {
     case USER_AUTHENTICATION_SUCCESS:
       return {
         loading: false,
+        authenticationSuccess: true,
         currentUser: action.payload,
       };
     case USER_AUTHENTICATION_FAIL:
       return {
         loading: false,
+        authenticationSuccess: false,
         error: action.payload,
       };
     case USER_LOGOUT:

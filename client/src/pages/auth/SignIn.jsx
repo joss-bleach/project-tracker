@@ -1,6 +1,8 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FaSpinner } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";
@@ -9,36 +11,34 @@ import { authenticateUser } from "../../app/actions/userActions";
 // Components
 import Alert from "../../components/alert/Alert";
 
+// Validation
+import { userAuthenticationValidationRules } from "./validationSchemas";
+
 const SignIn = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(userAuthenticationValidationRules),
   });
 
   const navigate = useNavigate();
-  const { email, password } = formData;
 
   const dispatch = useDispatch();
-  const userAuthentication = useSelector((state) => state.userAuthentication);
-  const { loading, error, currentUser } = userAuthentication;
+  const { loading, error, authenticationSuccess, currentUser } = useSelector(
+    (state) => state.userAuthentication
+  );
 
-  const handleOnChange = (e) => {
-    setFormData((previousState) => ({
-      ...previousState,
-      [e.target.id]: e.target.value,
-    }));
-  };
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
+  const handleOnSubmit = ({ email, password }) => {
     dispatch(authenticateUser(email, password));
   };
 
   useEffect(() => {
-    // if (currentUser) {
-    //   navigate("/");
-    // }
-  }, [currentUser, navigate]);
+    if (authenticationSuccess || currentUser) {
+      navigate("/");
+    }
+  }, [authenticationSuccess, currentUser, navigate]);
 
   return (
     <div className="flex flex-col items-center">
@@ -53,7 +53,11 @@ const SignIn = () => {
         </p>
       </div>
       {error && <Alert type="error">Invalid email/password combination.</Alert>}
-      <form onSubmit={handleOnSubmit} className="flex flex-col space-y-4 pt-4">
+      <form
+        onSubmit={handleSubmit(handleOnSubmit)}
+        className="flex flex-col space-y-4 pt-4"
+        noValidate={true}
+      >
         <fieldset className="form-fieldset">
           <label className="form-label" htmlFor="email">
             Email address
@@ -61,12 +65,12 @@ const SignIn = () => {
           <input
             name="email"
             id="email"
-            value={email}
-            onChange={handleOnChange}
+            {...register("email")}
             placeholder="hi@projectmanagement.co.uk"
             className="form-input"
             type="email"
           />
+          <p className="form-helper">{errors.email?.message}</p>
         </fieldset>
         <fieldset className="form-fieldset pb-4">
           <label className="form-label" htmlFor="email">
@@ -75,14 +79,18 @@ const SignIn = () => {
           <input
             name="password"
             id="password"
-            value={password}
-            onChange={handleOnChange}
+            {...register("password")}
             placeholder="mypassword"
             className="form-input"
             type="password"
           />
+          <p className="form-helper">{errors.password?.message}</p>
         </fieldset>
-        <button type="submit" className="form-submit">
+        <button
+          type="submit"
+          disabled={loading ? true : false}
+          className="form-submit"
+        >
           {loading ? <FaSpinner className="animate-spin" /> : "Sign in"}
         </button>
       </form>

@@ -20,8 +20,12 @@ html {
   @apply h-12 rounded-md border-2 border-theme-black px-2 font-light focus:outline-none;
 }
 
+.form-helper {
+  @apply text-xs font-medium tracking-wide text-red-600;
+}
+
 .form-submit {
-  @apply h-12 flex-row items-center justify-center rounded-md border-2 border-theme-black bg-theme-black font-bold text-theme-white transition hover:bg-theme-white hover:text-theme-black;
+  @apply flex h-12 flex-row items-center justify-center rounded-md border-2 border-theme-black bg-theme-black font-bold text-theme-white transition hover:bg-theme-white hover:text-theme-black disabled:border-theme-button-disabled disabled:bg-theme-button-disabled disabled:text-theme-white;
 }
 
 .form-alert {
