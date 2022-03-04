@@ -36,7 +36,7 @@ const SignIn = () => {
 
   useEffect(() => {
     if (authenticationSuccess || currentUser) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [authenticationSuccess, currentUser, navigate]);
 

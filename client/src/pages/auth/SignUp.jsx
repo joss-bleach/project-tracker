@@ -37,7 +37,7 @@ const SignUp = () => {
 
   useEffect(() => {
     if (registrationSuccess || currentUser) {
-      navigate("/");
+      navigate("/dashboard");
     }
   }, [registrationSuccess, currentUser, navigate]);
 
