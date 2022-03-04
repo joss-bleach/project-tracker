@@ -8,8 +8,15 @@ import User from "../models/User.js";
 // @desc - POST request to create a new project
 // @access - private
 export const createNewProject = asyncHandler(async (req, res) => {
-  const { name, description, completionDate, priority, status, githubUrl } =
-    req.body;
+  const {
+    name,
+    description,
+    completionDate,
+    priority,
+    status,
+    projectImageUrl,
+    githubUrl,
+  } = req.body;
 
   const currentUser = await User.findById(req.user._id);
 
@@ -18,15 +25,21 @@ export const createNewProject = asyncHandler(async (req, res) => {
     throw new Error("You cannot create a new project.");
   }
 
-  const project = await Project.create({
+  const newProject = {
     name,
     user: req.user._id,
     description,
     completionDate,
     priority,
     status,
+    projectImageUrl,
     githubUrl,
-  });
+  };
+
+  projectImageUrl === "" && delete newProject.ImageUrl;
+  githubUrl === "" && delete newProject.githubUrl;
+
+  const project = await Project.create(newProject);
 
   res.status(201).json(project);
 });

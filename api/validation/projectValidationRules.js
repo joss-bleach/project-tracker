@@ -36,6 +36,9 @@ export const projectValidationRules = () => {
     // Status
     body("status").not().isEmpty().withMessage("Please set a status."),
 
+    // Project image URL
+    body("projectImageUrl").isURL().withMessage("Please enter a valid URL."),
+
     // Github URL
     body("githubUrl").isURL().withMessage("Please enter a valid URL."),
   ];
