@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaSpinner } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { FaSpinner } from "react-icons/fa";
 
 // Redux
 import { useDispatch, useSelector } from "react-redux";

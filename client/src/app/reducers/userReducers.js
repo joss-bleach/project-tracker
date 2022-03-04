@@ -47,6 +47,7 @@ export const userRegistrationReducer = (state = {}, action) => {
     case USER_REGISTRATION_SUCCESS:
       return {
         loading: false,
+        registrationSuccess: true,
         currentUser: action.payload,
       };
     case USER_REGISTRATION_FAIL:
