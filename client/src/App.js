@@ -6,7 +6,7 @@ import Routes from "./routing/Routes";
 const App = () => {
   return (
     <Router>
-      <main className="container mx-auto py-20">
+      <main className="container mx-auto py-16 px-6">
         <Routes />
       </main>
     </Router>

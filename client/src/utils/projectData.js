@@ -1,0 +1,58 @@
+export const projectData = [
+  {
+    id: 123,
+    name: "This is a test project",
+    user: "621e1afc0fc2cf7033abc241",
+    description: "This is a test project",
+    completionDate: "2022-03-05T00:00:00.000+00:00",
+    priority: "high",
+    status: "open",
+    projectImage:
+      "https://images.unsplash.com/photo-1599581685979-c1fc49148302?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1932&q=80",
+    githubUrl: "https://github.com/joss-bleach/project1-finding-lanes",
+    createdAt: "2022-03-04T17:02:28.252+00:00",
+    updatedAt: "2022-03-04T17:02:28.252+00:00",
+  },
+  {
+    id: 124,
+    name: "This is a second test project",
+    user: "621e1afc0fc2cf7033abc241",
+    description: "This is a second test project",
+    completionDate: "2022-03-05T00:00:00.000+00:00",
+    priority: "low",
+    status: "open",
+    projectImage:
+      "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    githubUrl: "https://github.com/joss-bleach/project1-finding-lanes",
+    createdAt: "2022-03-04T17:02:28.252+00:00",
+    updatedAt: "2022-03-04T17:02:28.252+00:00",
+  },
+  {
+    id: 125,
+    name: "This is a third test project",
+    user: "621e1afc0fc2cf7033abc241",
+    description: "This is a third test project",
+    completionDate: "2022-03-05T00:00:00.000+00:00",
+    priority: "high",
+    status: "open",
+    projectImage:
+      "https://images.unsplash.com/photo-1640622332810-039ad9c96409?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    githubUrl: "https://github.com/joss-bleach/project1-finding-lanes",
+    createdAt: "2022-03-04T17:02:28.252+00:00",
+    updatedAt: "2022-03-04T17:02:28.252+00:00",
+  },
+  {
+    id: 126,
+    name: "This is a fourth test project",
+    user: "621e1afc0fc2cf7033abc241",
+    description: "This is a fourth test project",
+    completionDate: "2022-03-05T00:00:00.000+00:00",
+    priority: "medium",
+    status: "open",
+    projectImage:
+      "https://images.unsplash.com/photo-1640622300473-977435c38c04?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    githubUrl: "https://github.com/joss-bleach/project1-finding-lanes",
+    createdAt: "2022-03-04T17:02:28.252+00:00",
+    updatedAt: "2022-03-04T17:02:28.252+00:00",
+  },
+];

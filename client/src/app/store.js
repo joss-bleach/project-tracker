@@ -8,11 +8,13 @@ import {
   userRegistrationReducer,
   userCurrentInformationReducer,
 } from "./reducers/userReducers";
+import { projectUserProjectsReducer } from "./reducers/projectReducers";
 
 const reducer = combineReducers({
   userAuthentication: userAuthenticationReducer,
   userRegistration: userRegistrationReducer,
   userCurrentInformation: userCurrentInformationReducer,
+  projectUserProjects: projectUserProjectsReducer,
 });
 
 const currentUserInformationFromStorage = localStorage.getItem("currentUser")
